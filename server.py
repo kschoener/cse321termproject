@@ -14,33 +14,20 @@ def main():
     myip = str(out[0][out[0].strip().find("src ")+4:].strip())
     print("Supposedly my IP Address: "+myip)
 
-    picsDir = sys.argv[1] #path to the directory of all the pictures
-    pics = updatePics(picsDir) #gets all the pictures from the directory
+    pics = None
+    if(len(sys.argv) > 1):
+        picsDir = sys.argv[1] #path to the directory of all the pictures
+        pics = updatePics(picsDir) #gets all the pictures from the directory
 
     mpl.rcParams['toolbar'] = 'None' #hides the matplotlib menu
     plt.axis('off') #disables axis
     plt.gcf().canvas.set_window_title(myip)
     plt.ion() #allows for changes at runtime
-    plt.imshow(mpimg.imread("testImages/goog.png"))
-    plt.show()
-    start = time.time()
-    while(time.time() < start + 10):
-        pass
-    # time.sleep(5)
-    # print("hopefully showing DSC")
-    # plt.clf()
-    # plt.imshow(mpimg.imread("testImages/DSC_0008.JPG"))
-    start = time.time()
-    while(time.time() < start + 10):
-        pass
-    # time.sleep(5)
-    # print("hopefully showing image2")
-    # plt.imshow(mpimg.imread("testImages/image2.png"))
-    time.sleep(5)
 
+    firstTime = True
     index = 0
-    imPlt = None
-    while False:
+
+    while pics != None:
         if(index >= len(pics)):
             index = 0
             pics = updatePics(picsDir)
@@ -48,26 +35,13 @@ def main():
 
         print("Picture path is: "+str(os.path.join(picsDir, pics[index])))
         plt.imshow(mpimg.imread(str(os.path.join(picsDir, pics[index]))))
-        # plt.show()
-        # if(imPlt == None):
-        #     img = mpimg.imread(str(os.path.join(picsDir, pics[index])))
-        #     imPlt = plt.imshow(img)
-        #     plt.draw()
-        # else:
-        #     imPlt.set_data(mpimg.imread(str(os.path.join(picsDir, pics[index]))))
-
-        # plt.draw()
-
-        # img = mpimg.imread(str(os.path.join(picsDir, pics[index])))
-        # plt.imshow(img)
-        # plt.draw()
-
-        time.sleep(10)
-        # start = time.time()
-        # while(time.time() < start + 10):
-        #     pass
-        # print("Its's been 5 seconds, time to switch pics")
+        plt.pause(4)
+        if(firstTime):
+            firstTime = False
+            plt.show()
+        #endif
         index += 1
+        time.sleep(5)
     #endwhile
 #enddef main
 
@@ -75,10 +49,7 @@ def main():
 def updatePics(path):
     pics = []
     for filename in os.listdir(path):
-        # print(filename)
-        if os.path.isfile(os.path.join(path, filename)) and (filename.lower().endswith('jpg') or filename.lower().endswith('jpeg') or filename.lower().endswith('png')):
-            # print("that was a file!")
-            # print(filename + " was added!")
+        if os.path.isfile(os.path.join(path, filename)) and (filename.lower().endswith('.jpg') or filename.lower().endswith('.jpeg') or filename.lower().endswith('.png')):
             pics.append(filename)
         #endif
     #endfor
