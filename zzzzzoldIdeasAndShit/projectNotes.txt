@@ -1,0 +1,35 @@
+After this is completed, I want to not only be able to see messages but send them and load new messages.
+ssibly set up the raspberry pi as a server on the network, and have devices send their usages to the raspberry pi
+    this would require a distro to install on devices (probably with python)
+
+http://stackoverflow.com/questions/4760215/running-shell-command-from-python-and-capturing-the-output
+go to this link for a tutorial on how to capture command line output from python
+
+
+use '$ netstat -sp' to count packets sent and received
+
+use '$ arp -a' to see all devices on the network
+
+**determine distance from other devices (ping)
+
+'$ sudo tcpdump' prints out all current connections sent and received
+
+
+
+
+
+
+
+
+
+IF THIS ALL FAILS:
+
+another idea -- attach a RC receiver//transmitter to the raspberry pi and use it to be programmable -- maybe take over someone's drone to be devious
+
+PROBABLY GOING TO NEED ANOTHER IDEA -- CRAZY AMOUNT OF REQUIREMENTS
+
+build the portable photo album idea with raspberry pi!!!!!
+
+OR build a news summarizer that takes stories from big news sites and the weather and displays it on the screen use Python and/or Go and/or Javascript
+
+fuck the network viewing shit
