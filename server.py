@@ -20,8 +20,13 @@ def main():
         pics = updatePics(picsDir) #gets all the pictures from the directory
 
     mpl.rcParams['toolbar'] = 'None' #hides the matplotlib menu
-    plt.axis('off') #disables axis
-    plt.gcf().canvas.set_window_title(myip)
+    # plt.axis('off') #disables axis
+    # plt.gcf().canvas.set_window_title(myip)
+    fig = plt.figure(facecolor='black')
+    fig.canvas.set_window_title(myip)
+    # fig.axes[0].set_visible(False)
+    # fig.axes[1].set_visible(False)
+    plt.axis('off')
     plt.ion() #allows for changes at runtime
 
     firstTime = True
