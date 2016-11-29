@@ -5,7 +5,6 @@ import subprocess
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-import numpy as np
 
 def main():
     ret = subprocess.Popen(["ip", "route", "get", "8.8.8.8"], stdout=subprocess.PIPE)# | awk '{print $NF; exit}'"], stdout=subprocess.PIPE)
@@ -22,10 +21,9 @@ def main():
     mpl.rcParams['toolbar'] = 'None' #hides the matplotlib menu
     # plt.axis('off') #disables axis
     # plt.gcf().canvas.set_window_title(myip)
+
     fig = plt.figure(facecolor='black')
     fig.canvas.set_window_title(myip)
-    # fig.axes[0].set_visible(False)
-    # fig.axes[1].set_visible(False)
     plt.axis('off')
     plt.ion() #allows for changes at runtime
 

@@ -17,6 +17,6 @@ do
     fi
 done
 
-#scp -r tempDirForPicTransfer/. "pi@$ip:~/picsforalbum"
-cp -r tempDirForPicTransfer/. $ip
+scp -r tempDirForPicTransfer/. "pi@$ip:~/picturesForAlbum"
+# cp -r tempDirForPicTransfer/. $ip
 rm -rf tempDirForPicTransfer
