@@ -2,5 +2,5 @@
 
 echo Making image directory and copying test images
 mkdir ~/picturesForAlbum
-cp testImages/
-
+cp -r testImages/ ~/picturesForAlbum
+echo Done.
