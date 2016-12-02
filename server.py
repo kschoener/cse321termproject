@@ -37,6 +37,7 @@ def main():
         #endif
 
         print("Picture path is: "+str(os.path.join(picsDir, pics[index])))
+        plt.clf()
         plt.imshow(mpimg.imread(str(os.path.join(picsDir, pics[index]))))
         plt.pause(4)
         if(firstTime):
